@@ -38,4 +38,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
-    - run: npm test
+    - uses: actions/download-artifact@master
+      with:
+        name: webpack artifacts
+        path: public
+    - name: npm install, and test
